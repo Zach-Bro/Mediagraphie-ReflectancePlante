@@ -3,139 +3,264 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Médiagraphie - Recherche Scientifique</title>
+    <title>MÉDIAGRAPHIE</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
     <style>
+        :root {
+            --primary-color: #2d3436;
+            --accent-color: #27ae60; /* Couleur chlorophyllienne */
+            --bg-color: #f8f9fa;
+            --card-bg: #ffffff;
+            --text-main: #2d3436;
+            --text-light: #636e72;
+            --link-color: #0984e3;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
         body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            line-height: 1.6;
-            color: #333;
+            background-color: var(--bg-color);
+            font-family: 'Inter', sans-serif;
+            color: var(--text-main);
+            line-height: 1.7;
+            padding: 80px 20px;
+        }
+
+        .container {
             max-width: 900px;
             margin: 0 auto;
-            padding: 20px;
-            background-color: #f4f7f6;
+            background: var(--card-bg);
+            padding: 80px;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.05);
+            border-radius: 4px;
         }
-        header {
+
+        h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: 3.5rem;
             text-align: center;
-            border-bottom: 3px solid #2c3e50;
-            margin-bottom: 30px;
-            padding-bottom: 10px;
+            margin-bottom: 80px;
+            text-transform: uppercase;
+            letter-spacing: 4px;
+            color: var(--primary-color);
+            position: relative;
         }
-        h1 { color: #2c3e50; }
-        h2 { 
-            color: #27ae60; 
-            border-left: 5px solid #27ae60; 
-            padding-left: 10px; 
-            margin-top: 40px;
+
+        h1::after {
+            content: '';
+            position: absolute;
+            bottom: -15px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 100px;
+            height: 3px;
+            background-color: var(--accent-color);
         }
-        .source-item {
-            background: white;
-            margin-bottom: 15px;
-            padding: 15px;
-            border-radius: 8px;
-            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-            transition: transform 0.2s;
+
+        .reference-list {
+            list-style: none;
         }
-        .source-item:hover {
-            transform: translateX(10px);
+
+        .reference-item {
+            display: flex;
+            margin-bottom: 35px;
+            padding-bottom: 25px;
+            border-bottom: 1px solid #eee;
+            align-items: flex-start;
         }
-        .author { font-weight: bold; color: #2980b9; }
-        .title { font-style: italic; }
-        a {
-            color: #e67e22;
+
+        .reference-item:last-child {
+            border-bottom: none;
+        }
+
+        .ref-number {
+            font-weight: 600;
+            font-size: 1.2rem;
+            color: var(--accent-color);
+            min-width: 50px;
+            padding-top: 2px;
+        }
+
+        .ref-content {
+            flex: 1;
+            font-size: 1.1rem;
+        }
+
+        .ref-content em {
+            font-style: italic;
+        }
+
+        .url {
+            display: block;
+            margin-top: 10px;
+            color: var(--link-color);
             text-decoration: none;
-            word-break: break-all;
+            font-size: 0.95rem;
+            word-break: break-all; /* Empêche le débordement des liens longs */
+            font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+            background: #f1f3f5;
+            padding: 8px 12px;
+            border-radius: 4px;
         }
-        a:hover { text-decoration: underline; }
-        .footer {
-            margin-top: 50px;
-            text-align: center;
-            font-size: 0.9em;
-            color: #7f8c8d;
+
+        .url:hover {
+            background: #e9ecef;
+            text-decoration: underline;
+        }
+
+        @media (max-width: 768px) {
+            .container {
+                padding: 40px 20px;
+            }
+            h1 {
+                font-size: 2.2rem;
+            }
+            body {
+                padding: 40px 10px;
+            }
         }
     </style>
 </head>
 <body>
 
-<header>
-    <h1>Médiagraphie</h1>
-    <p>Étude sur la chlorophylle et les propriétés optiques des feuilles</p>
-</header>
+    <div class="container">
+        <h1>MÉDIAGRAPHIE</h1>
 
-<section>
-    <h2>Ouvrages de référence (Dictionnaires)</h2>
-    <div class="source-item">
-        <span class="author">Rennie, R. (2016).</span> <span class="title">A Dictionary of Chemistry</span> (7e éd.). Oxford University Press.
-    </div>
-    <div class="source-item">
-        <span class="author">Rennie, R. (2015).</span> <span class="title">A Dictionary of Physics</span> (7e éd.). Oxford University Press.
-    </div>
-    <div class="source-item">
-        <span class="author">Hine, R. (2008).</span> <span class="title">A Dictionary of Biology</span> (6e éd.). Oxford University Press.
-    </div>
-</section>
+        <div class="reference-list">
+            <div class="reference-item">
+                <span class="ref-number">1.</span>
+                <div class="ref-content">Rennie, R. (2016). <em>A Dictionary of Chemistry</em> (7e éd.). Oxford University Press.</div>
+            </div>
 
-<section>
-    <h2>Articles Scientifiques & Périodiques</h2>
-    <div class="source-item">
-        <span class="author">Andrieu, B., Kiriakos, S. & Jaggard, K. W. (1992).</span> Estimation de la concentration en chlorophylles de feuilles par mesure de leur réflectance ou par analyse numérique de photographies prises au laboratoire. <span class="title">Agronomie</span>, 12(6), 477-485. <br>
-        <a href="https://hal.science/hal-00885492" target="_blank">Consulter l'article</a>
-    </div>
-    <div class="source-item">
-        <span class="author">Mackinney, G. (1941).</span> Absorption of light by chlorophyll solutions. <span class="title">Journal of Biological Chemistry</span>, 140(1), 315-322. <br>
-        <a href="https://pdfs.semanticscholar.org/4c63/92afcca388025efdb5ede40ebbb851d48112.pdf" target="_blank">Lien PDF</a>
-    </div>
-    <div class="source-item">
-        <span class="author">Jacquemoud, S. & Beret, F. (1990).</span> PROSPECT : A Model of Leaf Optical Propreties Spectra. <span class="title">Remote Sensing of Environment</span>, 34(2), 75-9. DOI: 10.1016/0034-4257(90)90100-Z
-    </div>
-    <div class="source-item">
-        <span class="author">Gitelson, A. & Merzlyak, M. N. (1994).</span> Quantitative estimation of chlorophyll-a using reflectance spectra : experiments with autumn chestnut and maple leaves. <span class="title">Journal of Photochemistry and Photobiology B: Biology</span>, 22, 247-252.
-    </div>
-</section>
+            <div class="reference-item">
+                <span class="ref-number">2.</span>
+                <div class="ref-content">Rennie, R. (2015). <em>A Dictionary of Physics</em> (7e éd.). Oxford University Press.</div>
+            </div>
 
-<section>
-    <h2>Manuels et Rapports Techniques</h2>
-    <div class="source-item">
-        <span class="author">Cormier, C., Turcotte, V. et Voisard, B. (2024).</span> <span class="title">Chimie des solutions</span> (1re éd.). Les Éditions CEC. <br>
-        <a href="https://editionscec.com/products/chimie-des-solutions-numerique?level=collegial&type=elev" target="_blank">Site de l'éditeur</a>
-    </div>
-    <div class="source-item">
-        <span class="author">Cere, F., Burgat, A. & Scotto, P. (2014).</span> <span class="title">Extraction et séparation de la chlorophylle</span>. <br>
-        <a href="https://sites.ensfea.fr/physique-chimie/wp-content/uploads/sites/10/2016/10/chlorophylle.pdf" target="_blank">Lien PDF</a>
-    </div>
-    <div class="source-item">
-        <span class="author">Lorenzi, M. (2023).</span> <span class="title">La Méthode d’Intégration de Simpson</span>. [Fichier PDF : 20230511-simpson.pdf]
-    </div>
-</section>
+            <div class="reference-item">
+                <span class="ref-number">3.</span>
+                <div class="ref-content">Hine, R. (2008). <em>A Dictionary of Biology</em> (6e éd.). Oxford University Press.</div>
+            </div>
 
-<section>
-    <h2>Ressources Web et Matériel</h2>
-    <div class="source-item">
-        <span class="author">May, P. (2017).</span> <span class="title">Chlorophyll</span>. School of Chemistry, University of Bristol. <br>
-        <a href="https://www.chm.bris.ac.uk/motm/chlorophyll/chlorophyllh.htm" target="_blank">Visiter le site</a>
-    </div>
-    <div class="source-item">
-        <span class="author">Malvern Panalytical.</span> <span class="title">ASD FieldSpec 4 - High Resolution Spectroradiometer</span>. <br>
-        <a href="https://www.malvernpanalytical.com/en/products/product-range/asd-range/fieldspec-range/fieldspec4-hi-res-high-resolution-spectroradiometer" target="_blank">Fiche produit</a>
-    </div>
-    <div class="source-item">
-        <span class="author">Thermofisher Scientific.</span> <span class="title">SPECTRONIC™ 200 Spectrophotometer</span>. <br>
-        <a href="https://www.thermofisher.com/order/catalog/product/840-281700" target="_blank">Lien Thermofisher</a>
-    </div>
-</section>
+            <div class="reference-item">
+                <span class="ref-number">4.</span>
+                <div class="ref-content">
+                    May, P. (2017). <em>Chlorophyll</em>. School of Chemistry, University of Bristol.
+                    <a href="https://www.chm.bris.ac.uk/motm/chlorophyll/chlorophyllh.htm" class="url">https://www.chm.bris.ac.uk/motm/chlorophyll/chlorophyllh.htm</a>
+                </div>
+            </div>
 
-<section>
-    <h2>Supports Visuels et Outils</h2>
-    <div class="source-item">
-        <strong>Image de Monstera Deliciosa :</strong> Feuille Monstre Aquarelle Plante — Image gratuite sur Pixabay.
-    </div>
-    <div class="source-item">
-        <strong>Gabarit pour l’affiche scientifique :</strong> <a href="https://www.canva.com/templates/EAHBMXc0b1Q/" target="_blank">Modèle Canva</a>
-    </div>
-</section>
+            <div class="reference-item">
+                <span class="ref-number">5.</span>
+                <div class="ref-content">
+                    Cormier, C., Turcotte, V. et Voisard, B. (2024). <em>Chimie des solutions</em> (1re éd.). Les Éditions CEC.
+                    <a href="https://editionscec.com/products/chimie-des-solutions-numerique?level=collegial&type=elev" class="url">https://editionscec.com/products/chimie-des-solutions-numerique?level=collegial&type=elev</a>
+                </div>
+            </div>
 
-<div class="footer">
-    <p>&copy; 2024 - Projet de Recherche Scientifique</p>
-</div>
+            <div class="reference-item">
+                <span class="ref-number">6.</span>
+                <div class="ref-content">
+                    Andrieu, B., Kiriakos, S. & Jaggard, K. W. (1992). <em>Estimation de la concentration en chlorophylles de feuilles par mesure de leur réflectance ou par analyse numérique de photographies prises au laboratoire</em>. Agronomie, 12(6), 477-485.
+                    <a href="https://hal.science/hal-00885492" class="url">https://hal.science/hal-00885492</a>
+                </div>
+            </div>
+
+            <div class="reference-item">
+                <span class="ref-number">7.</span>
+                <div class="ref-content">
+                    Mackinney, G. (1941). <em>Absorption of light by chlorophyll solutions</em>. Journal of Biological Chemistry, 140(1), 315-322.
+                    <a href="https://pdfs.semanticscholar.org/4c63/92afcca388025efdb5ede40ebbb851d48112.pdf" class="url">https://pdfs.semanticscholar.org/4c63/92afcca388025efdb5ede40ebbb851d48112.pdf</a>
+                </div>
+            </div>
+
+            <div class="reference-item">
+                <span class="ref-number">8.</span>
+                <div class="ref-content">
+                    Auteur inconnu. (S. D.). <em>Separation of plant pigments by column chromatography</em>. Florida State College at Jacksonville.
+                    <a href="https://courseware.cutm.ac.in/wp-content/uploads/2020/06/Separation-of-plant-pigments-by-column-chromatography.pdf" class="url">https://courseware.cutm.ac.in/wp-content/uploads/2020/06/Separation-of-plant-pigments-by-column-chromatography.pdf</a>
+                </div>
+            </div>
+
+            <div class="reference-item">
+                <span class="ref-number">9.</span>
+                <div class="ref-content">
+                    Lorenzi, M. (2023). <em>La Méthode d’Intégration de Simpson</em>.
+                    <a href="https://www.mpsi-camille-guerin.fr/Docs/Vrac/20230511-simpson.pdf" class="url">https://www.mpsi-camille-guerin.fr/Docs/Vrac/20230511-simpson.pdf</a>
+                </div>
+            </div>
+
+            <div class="reference-item">
+                <span class="ref-number">10.</span>
+                <div class="ref-content">Jacquemoud, S. & Beret, F. (1990). <em>PROSPECT : A Model of Leaf Optical Propreties Spectra</em>. Remote Sensing of Environment, 34(2), 75-9. 10.1016/0034-4257(90)90100-Z</div>
+            </div>
+
+            <div class="reference-item">
+                <span class="ref-number">11.</span>
+                <div class="ref-content">
+                    Cere, F., Burgat, A. & Scotto, P. (2014). <em>Extraction et séparation de la chlorophylle</em>.
+                    <a href="https://sites.ensfea.fr/physique-chimie/wp-content/uploads/sites/10/2016/10/chlorophylle.pdf" class="url">https://sites.ensfea.fr/physique-chimie/wp-content/uploads/sites/10/2016/10/chlorophylle.pdf</a>
+                </div>
+            </div>
+
+            <div class="reference-item">
+                <span class="ref-number">12.</span>
+                <div class="ref-content">Gitelson, A. & Merzlyak, M. N. (1994). <em>Quantitative estimation of chlorophyll-a using reflectance spectra : experiments with autumn chestnut and maple leaves</em>. Journal of Photochemistry and Photobiology B: Biology, 22, 247-252</div>
+            </div>
+
+            <div class="reference-item">
+                <span class="ref-number">13.</span>
+                <div class="ref-content">
+                    Malvern Panalytical. (S. D.). <em>ASD FieldSpec 4 - High Resolution Spectroradiometer | Malvern Panalytical</em>. Malvern Panalytical.
+                    <a href="https://www.malvernpanalytical.com/en/products/product-range/asd-range/fieldspec-range/fieldspec4-hi-res-high-resolution-spectroradiometer" class="url">https://www.malvernpanalytical.com/en/products/product-range/asd-range/fieldspec-range/fieldspec4-hi-res-high-resolution-spectroradiometer</a>
+                </div>
+            </div>
+
+            <div class="reference-item">
+                <span class="ref-number">14.</span>
+                <div class="ref-content">
+                    Malvern Panalytical. (S. D.). <em>ViewSpec Pro (6.20) [Logiciel informatique]</em>. Malvern Panalytical.
+                    <a href="https://www.malvernpanalytical.com/en/support/product-support/software/viewspecprosoftwareinstall" class="url">https://www.malvernpanalytical.com/en/support/product-support/software/viewspecprosoftwareinstall</a>
+                </div>
+            </div>
+
+            <div class="reference-item">
+                <span class="ref-number">15.</span>
+                <div class="ref-content">
+                    Musou Black. (S. D.). <em>Musou Black Color (100 ml)</em>. Musou Black.
+                    <a href="https://www.musoublack.com/products/musou-black?variant=44798745346294" class="url">https://www.musoublack.com/products/musou-black?variant=44798745346294</a>
+                </div>
+            </div>
+
+            <div class="reference-item">
+                <span class="ref-number">16.</span>
+                <div class="ref-content">
+                    Thermofisher Scientific. (S. D.). <em>SPECTRONIC™ 200 Spectrophotometer US Cord | Request for Quote</em>. Thermofisher.
+                    <a href="https://www.thermofisher.com/order/catalog/product/840-281700" class="url">https://www.thermofisher.com/order/catalog/product/840-281700</a>
+                </div>
+            </div>
+
+            <div class="reference-item">
+                <span class="ref-number">17.</span>
+                <div class="ref-content">Image de monstera delisciosa : <em>Feuille Monstre Aquarelle Plante</em> — Image gratuite sur Pixabay</div>
+            </div>
+
+            <div class="reference-item">
+                <span class="ref-number">18.</span>
+                <div class="ref-content">
+                    Gabarit pour l’affiche scientifique :
+                    <a href="https://www.canva.com/templates/EAHBMXc0b1Q/" class="url">https://www.canva.com/templates/EAHBMXc0b1Q/</a>
+                </div>
+            </div>
+
+        </div>
+    </div>
 
 </body>
 </html>
